@@ -1,7 +1,12 @@
 import yfinance as yf
 from sqlalchemy import create_engine
 
-password = "mySQL2026"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+password = os.getenv("MYSQL_PASSWORD")
 
 engine = create_engine(
     f"mysql+pymysql://root:{password}@localhost/spectral_db"
